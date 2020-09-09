@@ -34,7 +34,12 @@
           <td class="box" id="b22"> </td>
         </tr>
     </table>
+    <script>
+        document.getElementById("player1-label").innerHTML = localStorage.getItem("p1value");
+        document.getElementById("player2-label").innerHTML = localStorage.getItem("p2value");
+    </script>
 </body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>  
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="index.js"></script>
 </html>

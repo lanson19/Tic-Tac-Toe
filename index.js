@@ -13,31 +13,39 @@ const move = function(id){
     if(letter == "X"){
         document.getElementById(id).innerHTML = letter;
         letter = "O";
-        checkWin();
     }else{
         document.getElementById(id).innerHTML = letter;
         letter = "X";
-        checkWin();
+    }
+    checkWin();
+}
+
+const checkWin = function(){
+    //horizontal Win Con
+    if(getTextContent("b00") != " " && getTextContent("b00") == getTextContent("b01") && getTextContent("b01") == getTextContent("b02")){
+        swal("You Won!", "","success", {
+            buttons: ["Exit", "Play Again!"],
+          });
+
+        // window.location.href = "index.html";
+    }else if(getTextContent("b10") != " " && getTextContent("b10") == getTextContent("b11") && getTextContent("b11") == getTextContent("b12")){
+        setTimeout(() => {  alert("mid win"); }, 5);
+    }else if(getTextContent("b20") != " " && getTextContent("b20") == getTextContent("b21") && getTextContent("b21") == getTextContent("b22")){
+        setTimeout(() => {  alert("bot win"); }, 5);
+    }else if(getTextContent("b00") != " " && getTextContent("b00") == getTextContent("b10") && getTextContent("b10") == getTextContent("b20")){ //vertical win con
+        setTimeout(() => {  alert("left win"); }, 5);
+    }else if(getTextContent("b01") != " " && getTextContent("b01") == getTextContent("b11") && getTextContent("b11") == getTextContent("b21")){
+        setTimeout(() => {  alert("down win"); }, 5);
+    }else if(getTextContent("b02") != " " && getTextContent("b02") == getTextContent("b12") && getTextContent("b12") == getTextContent("b22")){
+        setTimeout(() => {  alert("right win"); }, 5);
+    }else if(getTextContent("b00") != " " && getTextContent("b00") == getTextContent("b11") && getTextContent("b11") == getTextContent("b22")){ //diagnal win con
+        setTimeout(() => {  alert("left right win"); }, 5);
+    }else if(getTextContent("b02") != " " && getTextContent("b02") == getTextContent("b11") && getTextContent("b11") == getTextContent("b20")){
+        setTimeout(() => {  alert("right left win"); }, 5);
     }
 }
 
-const checkWin = function(letter){
-    var field1 = $("#board tr:nth-child(1) td:nth-child(1)").text();
-    var field2 = $("#board tr:nth-child(1) td:nth-child(2)").text();
-    var field3 = $("#board tr:nth-child(1) td:nth-child(3)").text();
-    var field4 = $("#board tr:nth-child(2) td:nth-child(1)").text();
-    var field5 = $("#board tr:nth-child(2) td:nth-child(2)").text();
-    var field6 = $("#board tr:nth-child(2) td:nth-child(3)").text();
-    var field7 = $("#board tr:nth-child(3) td:nth-child(1)").text();
-    var field8 = $("#board tr:nth-child(3) td:nth-child(2)").text();
-    var field9 = $("#board tr:nth-child(3) td:nth-child(3)").text();
-    if  ((field1==field2)&&(field2==field3)) { return field3; }
-    else if ((field4==field5)&&(field5==field6)) { return field6; }
-    else if ((field7==field8)&&(field8==field9)) { return field9; }
-    else if ((field1==field4)&&(field4==field7)) { return field7; }
-    else if ((field2==field5)&&(field5==field8)) { return field8; }
-    else if ((field3==field6)&&(field6==field9)) { return field9; }
-    else if ((field1==field5)&&(field5==field9)) { return field9; }
-    else if ((field3==field5)&&(field5==field7)) { return field7; }
-    return -1;
+const getTextContent = function(id){
+    return document.getElementById(id).textContent;
 }
+

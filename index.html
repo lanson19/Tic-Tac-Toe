@@ -7,16 +7,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-        <div class="title">Tic Tac Toe</div>
-        <form id="my-form" action="game.html">
-            <label for="player1">Player 1:</label><br>
-            <input type="text" id="player1" name="player1">
-        <br>
-            <label for="player2">Player 2:</label><br>
-            <input type="text" id="player2" name="player2">
-        <br>
-            <input type="submit" value="Play Game!">
-        </form>
+    <div class="title">Tic Tac Toe</div>
+    <form id="my-form" action="game.html">
+        <label for="player1">Player 1:</label><br>
+        <input type="text" id="player1" name="player1">
+    <br>
+        <label for="player2">Player 2:</label><br>
+        <input type="text" id="player2" name="player2">
+    <br>
+        <input type="submit" value="Play Game!" onclick="passvalues();">
+    </form>
+
+    <script>
+        function passvalues(){
+            var player1 = document.getElementById("player1").value;
+            localStorage.setItem("p1value", player1);
+
+            var player2 = document.getElementById("player2").value;
+            localStorage.setItem("p2value", player2);
+            return false;
+        }
+    </script>
 </body>
     <script src="index.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>
