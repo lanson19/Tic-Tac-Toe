@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lanson19/Tic-Tac-Toe#readme",
   "dependencies": {
+    "bootstrap": "^3.4.1",
     "ejs": "^3.1.5",
     "express": "^4.17.1"
   },

@@ -23,7 +23,7 @@ const move = function(id){
         counter++;
     }else{
         document.getElementById(id).innerHTML = letter;
-        playAgain("Game was a Tie!");
+        playAgain("Game was a Tie!", "info");
     }
 }
 
@@ -38,21 +38,21 @@ const getPlayerName = function(letter){
 const checkWin = function(letter){
     //horizontal Win Con
     if(getTextContent("b00") != " " && getTextContent("b00") == getTextContent("b01") && getTextContent("b01") == getTextContent("b02")){
-        playAgain(letter + " wins!");
+        playAgain(letter + " wins!", "success");
     }else if(getTextContent("b10") != " " && getTextContent("b10") == getTextContent("b11") && getTextContent("b11") == getTextContent("b12")){
-        playAgain(letter + " wins!");
+        playAgain(letter + " wins!", "success");
     }else if(getTextContent("b20") != " " && getTextContent("b20") == getTextContent("b21") && getTextContent("b21") == getTextContent("b22")){
-        playAgain(letter + " wins!");
+        playAgain(letter + " wins!", "success");
     }else if(getTextContent("b00") != " " && getTextContent("b00") == getTextContent("b10") && getTextContent("b10") == getTextContent("b20")){ //vertical win con
-        playAgain(letter + " wins!");
+        playAgain(letter + " wins!", "success");
     }else if(getTextContent("b01") != " " && getTextContent("b01") == getTextContent("b11") && getTextContent("b11") == getTextContent("b21")){
-        playAgain(letter + " wins!");
+        playAgain(letter + " wins!", "success");
     }else if(getTextContent("b02") != " " && getTextContent("b02") == getTextContent("b12") && getTextContent("b12") == getTextContent("b22")){
-        playAgain(letter + " wins!");
+        playAgain(letter + " wins!", "success");
     }else if(getTextContent("b00") != " " && getTextContent("b00") == getTextContent("b11") && getTextContent("b11") == getTextContent("b22")){ //diagnal win con
-        playAgain(letter + " wins!");
+        playAgain(letter + " wins!", "success");
     }else if(getTextContent("b02") != " " && getTextContent("b02") == getTextContent("b11") && getTextContent("b11") == getTextContent("b20")){
-        playAgain(letter + " wins!");
+        playAgain(letter + " wins!", "success");
     }
 }
 
@@ -60,8 +60,8 @@ const getTextContent = function(id){
     return document.getElementById(id).textContent;
 }
 
-const playAgain = function(input){
-    swal(input, "", "success", {
+const playAgain = function(input, type){
+    swal(input, "", type, {
         buttons: {
             cancel: "Exit",
             catch: {

@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TicTacToe</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
 </head>
-<body>
+<body id="home">
     <div class="title">Tic Tac Toe</div>
     <form id="my-form" action="game">
-        <label for="player1">Player 1:</label><br>
+        <label for="player1">Player 1</label><br>
         <input type="text" id="player1" name="player1" required>
     <br>
-        <label for="player2">Player 2:</label><br>
+        <label for="player2">Player 2</label><br>
         <input type="text" id="player2" name="player2" required>
     <br>
-        <input type="submit" value="Play Game!" onclick="passvalues();">
+    <br>
+        <input class="btn btn-outline-success btn-lg button" type="submit" value="Start Game" id="submit" onclick="passvalues();">
     </form>
 
     <script>
@@ -31,4 +34,6 @@
 </body>
     <script src="js/index.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>
